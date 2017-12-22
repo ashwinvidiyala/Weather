@@ -12,7 +12,7 @@ $(document).ready(function () {
       console.log(data);
       var temp = data.main.temp;
       // var tempF = Math.round(data.main.temp * (9/5) - 459.67);
-      $('body').append('<p> The temperature in ' + capitalize(city) + ' is currently '
+      $('#container').append('<p> The temperature in ' + capitalize(city) + ' is currently '
       + temp + ' degrees Fahrenheit.');
     }, 'json');
     return false;
