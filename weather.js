@@ -8,12 +8,12 @@ $(document).ready(function () {
   $('form').submit(function() {
     var city = $(this).serializeArray()[0].value;
     $.get('http://api.openweathermap.org/data/2.5/weather?q='
-    + city + '&&appid=' + apiKey, function(data) {
+    + city + '&units=imperial'+ '&appid=' + apiKey, function(data) {
       console.log(data);
-      // var temp = data.main.temp;
-      var tempF = Math.round(data.main.temp * (9/5) - 459.67);
+      var temp = data.main.temp;
+      // var tempF = Math.round(data.main.temp * (9/5) - 459.67);
       $('body').append('<p> The temperature in ' + capitalize(city) + ' is currently '
-      + tempF + ' degrees Fahrenheit.');
+      + temp + ' degrees Fahrenheit.');
     }, 'json');
     return false;
   });
